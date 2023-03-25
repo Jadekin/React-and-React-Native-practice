@@ -2,8 +2,11 @@ import * as React from "react";
 
 class MyComponent extends React.Component {
   state = {
-    heading: "React Awesomesouce {Busy}",
-    content: "Loading...",
+    first: "loading...",
+    second: "loading...",
+    third: "loading...",
+    fourth: "loading...",
+    doneMessage: "Doneeee!!",
   };
 
   constructor() {
@@ -11,19 +14,41 @@ class MyComponent extends React.Component {
 
     setTimeout(() => {
       this.setState({
-        heading: "React Awesomesouce",
-        content: "Done! :)",
+        first: "Done! :)",
+      });
+    }, 1000);
+
+    setTimeout(() => {
+      this.setState({
+        second: "Done! :)",
+      });
+    }, 2000);
+
+    setTimeout(() => {
+      this.setState({
+        third: "Done! :)",
       });
     }, 3000);
+
+    setTimeout(() => {
+      this.setState({
+        fourth: this.state.doneMessage,
+      });
+    }, 4000);
   }
 
   render() {
-    const { heading, content } = this.state;
     return (
       <main>
-        <h1>Creating component state</h1>
-        <h2>{heading}</h2>
-        <p>{content}</p>
+        <ul>
+          {Object.keys(this.state)
+            .filter((key) => key !== "doneMessage")
+            .map((key) => (
+              <li key={key}>
+                <strong>{key}</strong>: {this.state[key]}
+              </li>
+            ))}
+        </ul>
       </main>
     );
   }

@@ -2,19 +2,29 @@ import * as React from "react";
 
 class MyComponent extends React.Component {
   state = {
-    first: false,
-    second: true,
+    heading: "React Awesomesouce {Busy}",
+    content: "Loading...",
   };
 
-  render() {
-    const { first, second } = this.state;
+  constructor() {
+    super();
 
+    setTimeout(() => {
+      this.setState({
+        heading: "React Awesomesouce",
+        content: "Done! :)",
+      });
+    }, 3000);
+  }
+
+  render() {
+    const { heading, content } = this.state;
     return (
-      <div>
-        <h1>Setting components</h1>
-        <button disabled={first}>First</button>
-        <button disabled={second}>First</button>
-      </div>
+      <main>
+        <h1>Creating component state</h1>
+        <h2>{heading}</h2>
+        <p>{content}</p>
+      </main>
     );
   }
 }

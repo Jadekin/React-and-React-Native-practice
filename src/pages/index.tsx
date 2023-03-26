@@ -26,6 +26,7 @@ class MyComponent extends React.Component {
 
     setTimeout(() => {
       this.setState({
+        ...this.state,
         third: "Done! :)",
       });
     }, 3000);

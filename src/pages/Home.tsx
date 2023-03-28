@@ -1,4 +1,5 @@
 import * as React from "react";
+import Button from "./components";
 
 export default function Home() {
   const [name, setName] = React.useState("Karen");
@@ -20,21 +21,8 @@ export default function Home() {
       </div>
 
       <p>
-        This is {name} and I am {age}{" "}
+        This is {name} and I am {age}
       </p>
     </>
   );
 }
-export interface Props {
-  disabled: boolean;
-  text: string;
-  onClick?: React.FunctionComponent<React.MouseEvent<HTMLButtonElement>>;
-}
-
-export function Button({ disabled, text, onClick }: Props) {
-  return (
-    <button disabled={disabled} onClick={onClick}>
-      {text}
-    </button>
-  );
-} 

@@ -1,1 +1,2 @@
-export {default} from './Button';
+export {Button} from './Button';
+export {User} from './User';
